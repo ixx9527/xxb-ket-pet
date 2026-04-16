@@ -92,7 +92,7 @@ router.get('/calendar', async (req: Request, res: Response) => {
          AND EXTRACT(YEAR FROM checkin_date) = $2
          AND EXTRACT(MONTH FROM checkin_date) = $3
        ORDER BY checkin_date DESC`,
-      [userId, year, month]
+      [userId, String(year), String(month)]
     )
     
     const calendarMap: Record<number, any> = {}
@@ -108,7 +108,7 @@ router.get('/calendar', async (req: Request, res: Response) => {
       })
     })
     
-    const daysInMonth = dayjs(`${year}-${month}-01`).daysInMonth()
+    const daysInMonth = dayjs(`${String(year)}-${String(month)}-01`).daysInMonth()
     const calendar = Array.from({ length: daysInMonth }, (_, i) => {
       const day = i + 1
       return calendarMap[day] || { day, completed: false, categories: [] }
