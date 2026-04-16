@@ -1,12 +1,25 @@
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import { query } from '../database.js'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 const router = Router()
 
+interface RegisterBody {
+  username: string
+  password: string
+  name: string
+  grade: number
+  parentPhone: string
+}
+
+interface LoginBody {
+  username: string
+  password: string
+}
+
 // 登录
-router.post('/login', async (req, res) => {
+router.post('/login', async (req: Request<{}, {}, LoginBody>, res: Response) => {
   try {
     const { username, password } = req.body
     
@@ -29,7 +42,7 @@ router.post('/login', async (req, res) => {
     // 生成 JWT
     const token = jwt.sign(
       { userId: user.user_id, username: user.username },
-      process.env.JWT_SECRET,
+      process.env.JWT_SECRET!,
       { expiresIn: '7d' }
     )
     
@@ -46,14 +59,14 @@ router.post('/login', async (req, res) => {
         username: user.username
       }
     })
-  } catch (error) {
-    console.error('Login error:', error)
+  } catch (error: any) {
+    console.error('Login error:', error.message)
     res.status(500).json({ error: '登录失败' })
   }
 })
 
-// 注册（通常需要老师或家长创建）
-router.post('/register', async (req, res) => {
+// 注册
+router.post('/register', async (req: Request<{}, {}, RegisterBody>, res: Response) => {
   try {
     const { username, password, name, grade, parentPhone } = req.body
     
@@ -93,8 +106,8 @@ router.post('/register', async (req, res) => {
     )
     
     res.json({ success: true, userId })
-  } catch (error) {
-    console.error('Register error:', error)
+  } catch (error: any) {
+    console.error('Register error:', error.message)
     res.status(500).json({ error: '注册失败' })
   }
 })

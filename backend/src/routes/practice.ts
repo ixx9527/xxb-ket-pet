@@ -1,15 +1,24 @@
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import { query } from '../database.js'
 
 const router = Router()
 
+interface PracticeAnswer {
+  questionId: number
+  selectedAnswer: string
+  timeSpent?: number
+}
+
+interface PracticeSubmit {
+  userId: number
+  category: string
+  answers: PracticeAnswer[]
+}
+
 // 获取今日练习题目
-router.get('/daily', async (req, res) => {
+router.get('/daily', async (req: Request, res: Response) => {
   try {
-    const { category = 'KET' } = req.query
-    const userId = req.query.userId
-    
-    // 检查今天是否已完成
+    const { category = 'KET', userId } = req.query
     const today = new Date().toISOString().split('T')[0]
     
     if (userId) {
@@ -36,28 +45,24 @@ router.get('/daily', async (req, res) => {
     res.json({
       completed: false,
       questions: result.rows,
-      timeLimit: 900 // 15 分钟
+      timeLimit: 900
     })
-  } catch (error) {
-    console.error('Get daily practice error:', error)
+  } catch (error: any) {
+    console.error('Get daily practice error:', error.message)
     res.status(500).json({ error: '获取题目失败' })
   }
 })
 
 // 提交练习答案
-router.post('/submit', async (req, res) => {
+router.post('/submit', async (req: Request<{}, {}, PracticeSubmit>, res: Response) => {
   try {
     const { userId, category, answers } = req.body
-    // answers: [{questionId, selectedAnswer, timeSpent}]
-    
     const today = new Date().toISOString().split('T')[0]
     let correctCount = 0
     let totalTimeSpent = 0
     
-    // 开始事务
-    await query('BEGIN')
+    await query('BEGIN', [])
     
-    // 创建或更新每日练习记录
     const practiceResult = await query(
       `INSERT INTO daily_practice (user_id, practice_date, category)
        VALUES ($1, $2, $3)
@@ -69,7 +74,6 @@ router.post('/submit', async (req, res) => {
     
     const practiceId = practiceResult.rows[0].id
     
-    // 处理每个答案
     for (const answer of answers) {
       const questionResult = await query(
         'SELECT answer FROM questions WHERE id = $1',
@@ -80,14 +84,12 @@ router.post('/submit', async (req, res) => {
       if (isCorrect) correctCount++
       totalTimeSpent += answer.timeSpent || 0
       
-      // 记录答案
       await query(
         `INSERT INTO answers (user_id, question_id, daily_practice_id, selected_answer, is_correct, time_spent)
          VALUES ($1, $2, $3, $4, $5, $6)`,
-        [userId, answer.questionId, practiceId, answer.selectedAnswer, isCorrect, answer.timeSpent]
+        [userId, answer.questionId, practiceId, answer.selectedAnswer, isCorrect, answer.timeSpent || 0]
       )
       
-      // 如果错误，加入错题本
       if (!isCorrect) {
         await query(
           `INSERT INTO mistakes (user_id, question_id, wrong_count, last_wrong_at)
@@ -99,7 +101,6 @@ router.post('/submit', async (req, res) => {
       }
     }
     
-    // 更新练习记录
     await query(
       `UPDATE daily_practice 
        SET score = $1, total_questions = $2, correct_count = $3, time_spent = $4, 
@@ -108,7 +109,6 @@ router.post('/submit', async (req, res) => {
       [correctCount, answers.length, correctCount, totalTimeSpent, practiceId]
     )
     
-    // 更新成长记录
     const pointsEarned = correctCount * 10 + (correctCount === answers.length ? 20 : 0)
     await query(
       `UPDATE growth 
@@ -118,7 +118,6 @@ router.post('/submit', async (req, res) => {
       [pointsEarned, answers.length, userId]
     )
     
-    // 记录打卡
     await query(
       `INSERT INTO checkin_calendar (user_id, checkin_date, category, points_earned)
        VALUES ($1, $2, $3, $4)
@@ -126,7 +125,7 @@ router.post('/submit', async (req, res) => {
       [userId, today, category, pointsEarned]
     )
     
-    await query('COMMIT')
+    await query('COMMIT', [])
     
     res.json({
       success: true,
@@ -135,9 +134,9 @@ router.post('/submit', async (req, res) => {
       pointsEarned,
       practiceId
     })
-  } catch (error) {
-    await query('ROLLBACK')
-    console.error('Submit practice error:', error)
+  } catch (error: any) {
+    await query('ROLLBACK', [])
+    console.error('Submit practice error:', error.message)
     res.status(500).json({ error: '提交失败' })
   }
 })

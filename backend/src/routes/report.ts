@@ -1,14 +1,14 @@
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import { query } from '../database.js'
 import dayjs from 'dayjs'
 
 const router = Router()
 
-// 获取学习报告（周报/月报）
-router.get('/summary', async (req, res) => {
+// 获取学习报告
+router.get('/summary', async (req: Request, res: Response) => {
   try {
-    const userId = req.query.userId
-    const { type = 'weekly' } = req.query // weekly or monthly
+    const userId = req.query.userId as string
+    const { type = 'weekly' } = req.query
     
     const now = dayjs()
     const startDate = type === 'weekly' 
@@ -16,7 +16,6 @@ router.get('/summary', async (req, res) => {
       : now.startOf('month')
     const endDate = now.endOf(type === 'weekly' ? 'week' : 'month')
     
-    // 获取练习统计
     const practiceStats = await query(
       `SELECT 
          COUNT(*) as total_practices,
@@ -30,7 +29,6 @@ router.get('/summary', async (req, res) => {
       [userId, startDate.format('YYYY-MM-DD'), endDate.format('YYYY-MM-DD')]
     )
     
-    // 获取打卡天数
     const checkinDays = await query(
       `SELECT COUNT(DISTINCT checkin_date) as days
        FROM checkin_calendar
@@ -39,7 +37,6 @@ router.get('/summary', async (req, res) => {
       [userId, startDate.format('YYYY-MM-DD'), endDate.format('YYYY-MM-DD')]
     )
     
-    // 获取薄弱点（错误率最高的题目类型）
     const weakPoints = await query(
       `SELECT q.category, q.part, 
               COUNT(*) as total, 
@@ -55,7 +52,6 @@ router.get('/summary', async (req, res) => {
       [userId, startDate.format('YYYY-MM-DD'), endDate.format('YYYY-MM-DD')]
     )
     
-    // 生成建议
     const suggestions = generateSuggestions(weakPoints.rows, practiceStats.rows[0])
     
     res.json({
@@ -72,16 +68,16 @@ router.get('/summary', async (req, res) => {
       weakPoints: weakPoints.rows,
       suggestions
     })
-  } catch (error) {
-    console.error('Get report summary error:', error)
+  } catch (error: any) {
+    console.error('Get report summary error:', error.message)
     res.status(500).json({ error: '获取报告失败' })
   }
 })
 
-// 获取打卡日历（按月）
-router.get('/calendar', async (req, res) => {
+// 获取打卡日历
+router.get('/calendar', async (req: Request, res: Response) => {
   try {
-    const userId = req.query.userId
+    const userId = req.query.userId as string
     const { year, month } = req.query
     
     const result = await query(
@@ -98,16 +94,11 @@ router.get('/calendar', async (req, res) => {
       [userId, year, month]
     )
     
-    // 按日期分组
-    const calendarMap = {}
-    result.rows.forEach(row => {
+    const calendarMap: Record<number, any> = {}
+    result.rows.forEach((row: any) => {
       const day = row.day
       if (!calendarMap[day]) {
-        calendarMap[day] = {
-          day,
-          completed: false,
-          categories: []
-        }
+        calendarMap[day] = { day, completed: false, categories: [] }
       }
       calendarMap[day].completed = true
       calendarMap[day].categories.push({
@@ -116,7 +107,6 @@ router.get('/calendar', async (req, res) => {
       })
     })
     
-    // 获取当月总天数
     const daysInMonth = dayjs(`${year}-${month}-01`).daysInMonth()
     const calendar = Array.from({ length: daysInMonth }, (_, i) => {
       const day = i + 1
@@ -124,16 +114,16 @@ router.get('/calendar', async (req, res) => {
     })
     
     res.json({ calendar })
-  } catch (error) {
-    console.error('Get calendar error:', error)
+  } catch (error: any) {
+    console.error('Get calendar error:', error.message)
     res.status(500).json({ error: '获取日历失败' })
   }
 })
 
 // 获取排行榜
-router.get('/leaderboard', async (req, res) => {
+router.get('/leaderboard', async (req: Request, res: Response) => {
   try {
-    const { type = 'week', limit = 10 } = req.query
+    const { type = 'week', limit = '10' } = req.query
     
     const now = dayjs()
     const startDate = type === 'week' 
@@ -157,53 +147,49 @@ router.get('/leaderboard', async (req, res) => {
     
     res.json({
       type,
-      leaderboard: result.rows.map((row, index) => ({
+      leaderboard: result.rows.map((row: any, index: number) => ({
         rank: index + 1,
         ...row
       }))
     })
-  } catch (error) {
-    console.error('Get leaderboard error:', error)
+  } catch (error: any) {
+    console.error('Get leaderboard error:', error.message)
     res.status(500).json({ error: '获取排行榜失败' })
   }
 })
 
 // 获取勋章列表
-router.get('/badges', async (req, res) => {
+router.get('/badges', async (req: Request, res: Response) => {
   try {
-    const userId = req.query.userId
+    const userId = req.query.userId as string
     
-    // 获取用户勋章
     const userBadges = await query(
       `SELECT badges FROM growth WHERE user_id = $1`,
       [userId]
     )
     
-    // 获取所有勋章配置
     const allBadges = await query(
       `SELECT * FROM badge_config ORDER BY points_reward DESC`,
       []
     )
     
-    // 合并信息
-    const userBadgeIds = userBadges.rows[0]?.badges?.map(b => b.id) || []
+    const userBadgeIds = userBadges.rows[0]?.badges?.map((b: any) => b.id) || []
     
-    const badges = allBadges.rows.map(badge => ({
+    const badges = allBadges.rows.map((badge: any) => ({
       ...badge,
       earned: userBadgeIds.includes(badge.badge_id),
-      earnedAt: userBadges.rows[0]?.badges?.find(b => b.id === badge.badge_id)?.earned_at
+      earnedAt: userBadges.rows[0]?.badges?.find((b: any) => b.id === badge.badge_id)?.earned_at
     }))
     
     res.json({ badges })
-  } catch (error) {
-    console.error('Get badges error:', error)
+  } catch (error: any) {
+    console.error('Get badges error:', error.message)
     res.status(500).json({ error: '获取勋章失败' })
   }
 })
 
-// 生成学习建议
-function generateSuggestions(weakPoints, stats) {
-  const suggestions = []
+function generateSuggestions(weakPoints: any[], stats: any) {
+  const suggestions: string[] = []
   
   if (weakPoints.length > 0) {
     const weakest = weakPoints[0]
