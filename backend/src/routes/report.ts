@@ -124,10 +124,11 @@ router.get('/calendar', async (req: Request, res: Response) => {
 // 获取排行榜
 router.get('/leaderboard', async (req: Request, res: Response) => {
   try {
-    const { type = 'week', limit = '10' } = req.query
+    const queryType = req.query.type as string || 'week'
+    const limit = String(req.query.limit || '10')
     
     const now = dayjs()
-    const startDate = type === 'week' 
+    const startDate = queryType === 'week' 
       ? now.startOf('week').format('YYYY-MM-DD')
       : now.startOf('month').format('YYYY-MM-DD')
     
@@ -147,7 +148,7 @@ router.get('/leaderboard', async (req: Request, res: Response) => {
     )
     
     res.json({
-      type,
+      type: queryType,
       leaderboard: result.rows.map((row: any, index: number) => ({
         rank: index + 1,
         ...row
