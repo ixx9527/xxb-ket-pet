@@ -1,10 +1,10 @@
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import { query } from '../database.js'
 
 const router = Router()
 
 // 获取错题列表
-router.get('/', async (req, res) => {
+router.get('/', async (req: Request, res: Response) => {
   try {
     const userId = req.query.userId
     
@@ -18,14 +18,14 @@ router.get('/', async (req, res) => {
     )
     
     res.json({ mistakes: result.rows })
-  } catch (error) {
-    console.error('Get mistakes error:', error)
+  } catch (error: any) {
+    console.error('Get mistakes error:', error.message)
     res.status(500).json({ error: '获取错题失败' })
   }
 })
 
 // 标记错题已掌握
-router.put('/:questionId/master', async (req, res) => {
+router.put('/:questionId/master', async (req: Request, res: Response) => {
   try {
     const { questionId } = req.params
     const userId = req.query.userId
@@ -37,8 +37,8 @@ router.put('/:questionId/master', async (req, res) => {
     )
     
     res.json({ success: true })
-  } catch (error) {
-    console.error('Mark mistake as mastered error:', error)
+  } catch (error: any) {
+    console.error('Mark mistake as mastered error:', error.message)
     res.status(500).json({ error: '操作失败' })
   }
 })

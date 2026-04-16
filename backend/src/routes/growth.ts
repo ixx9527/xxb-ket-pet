@@ -1,10 +1,10 @@
-import { Router } from 'express'
+import { Router, Request, Response } from 'express'
 import { query } from '../database.js'
 
 const router = Router()
 
 // 获取用户成长信息
-router.get('/profile', async (req, res) => {
+router.get('/profile', async (req: Request, res: Response) => {
   try {
     const userId = req.query.userId
     
@@ -24,17 +24,17 @@ router.get('/profile', async (req, res) => {
     }
     
     res.json(result.rows[0])
-  } catch (error) {
-    console.error('Get growth profile error:', error)
+  } catch (error: any) {
+    console.error('Get growth profile error:', error.message)
     res.status(500).json({ error: '获取成长信息失败' })
   }
 })
 
 // 获取打卡日历
-router.get('/calendar', async (req, res) => {
+router.get('/calendar', async (req: Request, res: Response) => {
   try {
-    const userId = req.query.userId
-    const { month, year } = req.query
+    const userId = req.query.userId as string
+    const { month, year } = req.query as { month?: string, year?: string }
     
     const result = await query(
       `SELECT checkin_date, category, points_earned
@@ -43,20 +43,20 @@ router.get('/calendar', async (req, res) => {
          AND EXTRACT(MONTH FROM checkin_date) = $2
          AND EXTRACT(YEAR FROM checkin_date) = $3
        ORDER BY checkin_date DESC`,
-      [userId, month, year]
+      [userId, String(month || 1), String(year || new Date().getFullYear())]
     )
     
     res.json({ calendar: result.rows })
-  } catch (error) {
-    console.error('Get calendar error:', error)
+  } catch (error: any) {
+    console.error('Get calendar error:', error.message)
     res.status(500).json({ error: '获取日历失败' })
   }
 })
 
 // 获取勋章列表
-router.get('/badges', async (req, res) => {
+router.get('/badges', async (req: Request, res: Response) => {
   try {
-    const userId = req.query.userId
+    const userId = req.query.userId as string
     
     const result = await query(
       `SELECT g.badges, g.points
@@ -66,8 +66,8 @@ router.get('/badges', async (req, res) => {
     )
     
     res.json(result.rows[0])
-  } catch (error) {
-    console.error('Get badges error:', error)
+  } catch (error: any) {
+    console.error('Get badges error:', error.message)
     res.status(500).json({ error: '获取勋章失败' })
   }
 })
