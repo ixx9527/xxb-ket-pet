@@ -78,7 +78,8 @@ router.get('/summary', async (req: Request, res: Response) => {
 router.get('/calendar', async (req: Request, res: Response) => {
   try {
     const userId = req.query.userId as string
-    const { year, month } = req.query as { year: string, month: string }
+    const year = String(req.query.year || new Date().getFullYear())
+    const month = String(req.query.month || new Date().getMonth() + 1)
     
     const result = await query(
       `SELECT 
