@@ -8,8 +8,8 @@
 # 创建目录
 sudo mkdir -p /root/projects && cd /root/projects
 
-# 克隆代码（如果有 Git 仓库）
-git clone <你的仓库地址> xxb-ket-pet
+# 克隆代码
+git clone git@github.com:ixx9527/xxb-ket-pet.git xxb-ket-pet
 cd xxb-ket-pet
 
 # 或者：如果没有 Git，将本地项目打包上传

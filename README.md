@@ -28,7 +28,7 @@
 ```bash
 # 1. 克隆项目
 cd /root/projects
-git clone <你的仓库地址> xxb-ket-pet
+git clone git@github.com:ixx9527/xxb-ket-pet.git xxb-ket-pet
 cd xxb-ket-pet
 
 # 2. 配置环境变量

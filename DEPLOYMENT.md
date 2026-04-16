@@ -47,7 +47,7 @@ cd /root/projects
 
 ```bash
 # 方式 A：从 Git 仓库克隆（推荐）
-git clone <你的仓库地址> xxb-ket-pet
+git clone git@github.com:ixx9527/xxb-ket-pet.git xxb-ket-pet
 cd xxb-ket-pet
 
 # 方式 B：如果没有 Git 仓库，可以手动创建文件
