@@ -1,0 +1,31 @@
+import { Pool } from 'pg'
+
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false
+})
+
+export const query = async (text, params) => {
+  const start = Date.now()
+  try {
+    const result = await pool.query(text, params)
+    const duration = Date.now() - start
+    console.log('Query executed:', { text, duration, rows: result.rowCount })
+    return result
+  } catch (error) {
+    console.error('Database query error:', error)
+    throw error
+  }
+}
+
+export const initDatabase = async () => {
+  try {
+    const result = await query('SELECT NOW()')
+    console.log('✅ 数据库连接成功:', result.rows[0].now)
+  } catch (error) {
+    console.error('❌ 数据库连接失败:', error.message)
+    throw error
+  }
+}
+
+export default pool

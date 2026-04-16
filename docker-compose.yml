@@ -1,0 +1,80 @@
+version: '3.8'
+
+services:
+  # ==================== 前端 ====================
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: xxb-frontend
+    restart: always
+    networks:
+      - xxb-network
+    depends_on:
+      - backend
+
+  # ==================== 后端 ====================
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: xxb-backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - DATABASE_URL=postgresql://xxb:${DB_PASSWORD}@postgres:5432/xxb_db
+      - REDIS_URL=redis://redis:6379
+      - JWT_SECRET=${JWT_SECRET}
+      - MINIO_ENDPOINT=minio:9000
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+    ports:
+      - "3000:3000"
+    networks:
+      - xxb-network
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  # ==================== 数据库 ====================
+  postgres:
+    image: postgres:15-alpine
+    container_name: xxb-postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=xxb
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=xxb_db
+    volumes:
+      - ./data/postgres:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - xxb-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U xxb -d xxb_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ==================== 缓存 ====================
+  redis:
+    image: redis:7-alpine
+    container_name: xxb-redis
+    restart: always
+    command: redis-server --appendonly yes
+    volumes:
+      - ./data/redis:/data
+    networks:
+      - xxb-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  xxb-network:
+    driver: bridge

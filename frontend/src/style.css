@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===========================================
+   星星榜 - 儿童友好样式指南
+   =========================================== */
+
+/* 基础设置 */
+body {
+  font-family: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+}
+
+/* 儿童友好大字体 */
+.text-ket {
+  @apply text-lg md:text-xl;
+}
+
+/* ===========================================
+   按钮系统 - 大尺寸、圆角、易点击
+   =========================================== */
+.btn-primary {
+  @apply bg-gradient-to-r from-blue-500 to-blue-600 
+         hover:from-blue-600 hover:to-blue-700 
+         text-white font-bold py-4 px-8 
+         rounded-2xl text-lg 
+         transition-all duration-200 
+         shadow-lg hover:shadow-xl 
+         active:scale-95 
+         disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply bg-white hover:bg-gray-50 
+         text-blue-600 font-bold py-4 px-8 
+         rounded-2xl text-lg 
+         transition-all duration-200 
+         shadow-lg hover:shadow-xl 
+         active:scale-95;
+}
+
+.btn-success {
+  @apply bg-gradient-to-r from-green-500 to-green-600 
+         hover:from-green-600 hover:to-green-700 
+         text-white font-bold py-4 px-8 
+         rounded-2xl text-lg 
+         transition-all duration-200 
+         shadow-lg hover:shadow-xl 
+         active:scale-95;
+}
+
+.btn-warning {
+  @apply bg-gradient-to-r from-yellow-400 to-orange-400 
+         hover:from-yellow-500 hover:to-orange-500 
+         text-white font-bold py-4 px-8 
+         rounded-2xl text-lg 
+         transition-all duration-200 
+         shadow-lg hover:shadow-xl 
+         active:scale-95;
+}
+
+/* ===========================================
+   卡片系统 - 圆角、阴影、温馨感
+   =========================================== */
+.card {
+  @apply bg-white rounded-3xl shadow-xl p-6 
+         border border-gray-100;
+}
+
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-1;
+}
+
+/* ===========================================
+   答题选项 - 大尺寸、清晰反馈
+   =========================================== */
+.option-card {
+  @apply border-2 border-gray-200 rounded-2xl p-4 
+         cursor-pointer transition-all duration-200 
+         hover:border-blue-400 hover:bg-blue-50 
+         active:scale-98;
+}
+
+.option-card.selected {
+  @apply border-blue-500 bg-blue-100 shadow-md;
+}
+
+.option-card.correct {
+  @apply border-green-500 bg-green-100 shadow-md;
+}
+
+.option-card.wrong {
+  @apply border-red-500 bg-red-100 shadow-md;
+}
+
+/* ===========================================
+   动画效果
+   =========================================== */
+@keyframes bounce-in {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shine {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.5s ease-out;
+}
+
+.animate-shine {
+  animation: shine 2s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ===========================================
+   进度条
+   =========================================== */
+.progress-bar {
+  @apply bg-gray-200 rounded-full overflow-hidden;
+}
+
+.progress-fill {
+  @apply bg-gradient-to-r from-blue-500 to-purple-500 
+         h-full rounded-full transition-all duration-500;
+}
+
+/* ===========================================
+   徽章/勋章样式
+   =========================================== */
+.badge {
+  @apply inline-flex items-center px-3 py-1 
+         rounded-full text-sm font-bold;
+}
+
+.badge-primary {
+  @apply bg-blue-100 text-blue-700;
+}
+
+.badge-success {
+  @apply bg-green-100 text-green-700;
+}
+
+.badge-warning {
+  @apply bg-yellow-100 text-yellow-700;
+}
+
+/* ===========================================
+   响应式网格
+   =========================================== */
+.grid-responsive {
+  @apply grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4;
+}
+
+/* ===========================================
+   安全区域（iPad）
+   =========================================== */
+.safe-area-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* ===========================================
+   滚动条美化
+   =========================================== */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 rounded-full hover:bg-gray-400;
+}
