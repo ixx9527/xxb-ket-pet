@@ -1,0 +1,394 @@
+[
+  {
+    "category": "KET",
+    "part": "Reading Part 4",
+    "question_type": "single_choice",
+    "content": "What is the Chinese meaning of \"library\"?",
+    "options": [
+      {
+        "key": "A",
+        "text": "图书馆"
+      },
+      {
+        "key": "B",
+        "text": "书店"
+      },
+      {
+        "key": "C",
+        "text": "学校"
+      }
+    ],
+    "answer": "A",
+    "explanation": "library 的意思是\"图书馆\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "词汇",
+      "翻译"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 4",
+    "question_type": "single_choice",
+    "content": "What is the Chinese meaning of \"restaurant\"?",
+    "options": [
+      {
+        "key": "A",
+        "text": "餐厅"
+      },
+      {
+        "key": "B",
+        "text": "医院"
+      },
+      {
+        "key": "C",
+        "text": "公园"
+      }
+    ],
+    "answer": "A",
+    "explanation": "restaurant 的意思是\"餐厅\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "词汇",
+      "翻译"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 4",
+    "question_type": "single_choice",
+    "content": "What is the Chinese meaning of \"hospital\"?",
+    "options": [
+      {
+        "key": "A",
+        "text": "医院"
+      },
+      {
+        "key": "B",
+        "text": "学校"
+      },
+      {
+        "key": "C",
+        "text": "超市"
+      }
+    ],
+    "answer": "A",
+    "explanation": "hospital 的意思是\"医院\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "词汇",
+      "翻译"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 4",
+    "question_type": "single_choice",
+    "content": "What is the Chinese meaning of \"supermarket\"?",
+    "options": [
+      {
+        "key": "A",
+        "text": "超市"
+      },
+      {
+        "key": "B",
+        "text": "图书馆"
+      },
+      {
+        "key": "C",
+        "text": "电影院"
+      }
+    ],
+    "answer": "A",
+    "explanation": "supermarket 的意思是\"超市\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "词汇",
+      "翻译"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 4",
+    "question_type": "single_choice",
+    "content": "What is the Chinese meaning of \"cinema\"?",
+    "options": [
+      {
+        "key": "A",
+        "text": "电影院"
+      },
+      {
+        "key": "B",
+        "text": "公园"
+      },
+      {
+        "key": "C",
+        "text": "车站"
+      }
+    ],
+    "answer": "A",
+    "explanation": "cinema 的意思是\"电影院\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "词汇",
+      "翻译"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Speaking Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best response:\n\nA: \"How are you?\"\nB: \"___\"",
+    "options": [
+      {
+        "key": "A",
+        "text": "I'm fine, thanks."
+      },
+      {
+        "key": "B",
+        "text": "Good morning."
+      },
+      {
+        "key": "C",
+        "text": "Goodbye."
+      }
+    ],
+    "answer": "A",
+    "explanation": "回答\"How are you?\"用\"I'm fine, thanks.\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "口语",
+      "情景对话"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Speaking Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best response:\n\nA: \"Thank you very much.\"\nB: \"___\"",
+    "options": [
+      {
+        "key": "A",
+        "text": "You're welcome."
+      },
+      {
+        "key": "B",
+        "text": "No thanks."
+      },
+      {
+        "key": "C",
+        "text": "That's right."
+      }
+    ],
+    "answer": "A",
+    "explanation": "回应感谢用\"You're welcome.\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "口语",
+      "情景对话"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Speaking Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best response:\n\nA: \"What time is it?\"\nB: \"___\"",
+    "options": [
+      {
+        "key": "A",
+        "text": "It's half past two."
+      },
+      {
+        "key": "B",
+        "text": "Yes, it is."
+      },
+      {
+        "key": "C",
+        "text": "I like it."
+      }
+    ],
+    "answer": "A",
+    "explanation": "询问时间用具体时间回答。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "口语",
+      "情景对话"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Speaking Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best response:\n\nA: \"Can you help me?\"\nB: \"___\"",
+    "options": [
+      {
+        "key": "A",
+        "text": "Of course."
+      },
+      {
+        "key": "B",
+        "text": "Yes, I do."
+      },
+      {
+        "key": "C",
+        "text": "No, I can't."
+      }
+    ],
+    "answer": "A",
+    "explanation": "回应请求帮助用\"Of course.\"表示乐意帮助。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "口语",
+      "情景对话"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Reading Part 3",
+    "question_type": "single_choice",
+    "content": "Read the text and answer the question:\n\nThe City Museum\n\nThe City Museum is one of the most popular attractions in our town. It has collections of local history, art, and science exhibits. The museum is open from Tuesday to Sunday, 9 AM to 5 PM. Entry is free for children under 12. Adults pay £8, students and seniors pay £6.\n\nThere is a café on the ground floor and a gift shop on the first floor. Guided tours are available at 11 AM and 2 PM every day. Photography is not allowed in the exhibition areas.\n\nHow much does a student pay for entry?",
+    "options": [
+      {
+        "key": "A",
+        "text": "£6"
+      },
+      {
+        "key": "B",
+        "text": "£8"
+      },
+      {
+        "key": "C",
+        "text": "Nothing"
+      }
+    ],
+    "answer": "A",
+    "explanation": "文中明确说明\"students and seniors pay £6\"。",
+    "difficulty": 3,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "阅读理解",
+      "信息提取"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Reading Part 3",
+    "question_type": "single_choice",
+    "content": "Read the text and answer the question:\n\nSummer Language Course\n\nImprove your English this summer! Our intensive course runs for four weeks from July 1st to July 28th. Classes are held every morning from 9 AM to 12 PM. The course is suitable for students aged 14-18.\n\nActivities include:\n- Morning English lessons\n- Afternoon sports and excursions\n- Evening social events\n\nPrice: £450 (includes accommodation and meals)\nEarly bird discount: Book before May 1st and save £50!\n\nWho is this course for?",
+    "options": [
+      {
+        "key": "A",
+        "text": "Adults over 18"
+      },
+      {
+        "key": "B",
+        "text": "Teenagers aged 14-18"
+      },
+      {
+        "key": "C",
+        "text": "Children under 12"
+      }
+    ],
+    "answer": "B",
+    "explanation": "文中说明\"The course is suitable for students aged 14-18\"。",
+    "difficulty": 3,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "阅读理解",
+      "信息提取"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best word to complete the sentence:\n\nDon't ___ trying, you're almost there!",
+    "options": [
+      {
+        "key": "A",
+        "text": "give up"
+      },
+      {
+        "key": "B",
+        "text": "give in"
+      },
+      {
+        "key": "C",
+        "text": "give out"
+      }
+    ],
+    "answer": "A",
+    "explanation": "give up 意思是\"放弃\"。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "词汇",
+      "短语动词"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best word to complete the sentence:\n\nCan you ___ my cat while I'm on holiday?",
+    "options": [
+      {
+        "key": "A",
+        "text": "look after"
+      },
+      {
+        "key": "B",
+        "text": "look for"
+      },
+      {
+        "key": "C",
+        "text": "look at"
+      }
+    ],
+    "answer": "A",
+    "explanation": "look after 意思是\"照顾\"。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "词汇",
+      "短语动词"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 1",
+    "question_type": "single_choice",
+    "content": "Choose the best word to complete the sentence:\n\nI need to ___ what time the train leaves.",
+    "options": [
+      {
+        "key": "A",
+        "text": "find out"
+      },
+      {
+        "key": "B",
+        "text": "find"
+      },
+      {
+        "key": "C",
+        "text": "look for"
+      }
+    ],
+    "answer": "A",
+    "explanation": "find out 意思是\"查明\"。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "词汇",
+      "短语动词"
+    ]
+  }
+]
