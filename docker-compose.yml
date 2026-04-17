@@ -8,6 +8,8 @@ services:
       dockerfile: Dockerfile
     container_name: xxb-frontend
     restart: always
+    ports:
+      - "8080:80"
     networks:
       - xxb-network
     depends_on:
