@@ -47,6 +47,168 @@
 }
 ```
 
+### GET /middleware/verify
+
+验证 Token 是否有效
+
+**Header**: `Authorization: Bearer <token>`
+
+**响应**:
+```json
+{
+  "valid": true,
+  "user": {
+    "userId": 1,
+    "username": "student001"
+  }
+}
+```
+
+### POST /middleware/refresh
+
+刷新 Token
+
+**Header**: `Authorization: Bearer <token>`
+
+**响应**:
+```json
+{
+  "token": "eyJhbGciOiJIUzI1NiIs...",
+  "user": {
+    "userId": 1,
+    "username": "student001"
+  }
+}
+```
+
+---
+
+## 👤 用户管理接口
+
+### GET /user/profile
+
+获取用户详细信息
+
+**参数**:
+- `userId`: 用户 ID
+
+**响应**:
+```json
+{
+  "user": {
+    "id": 1,
+    "username": "student001",
+    "name": "张三",
+    "nickname": "小明",
+    "grade": 3,
+    "avatar_url": "https://...",
+    "parent_phone": "13800138000",
+    "parent_wechat": "wx123456",
+    "is_active": true,
+    "last_login_at": "2026-04-17T08:00:00Z",
+    "created_at": "2026-01-01T00:00:00Z"
+  },
+  "growth": {
+    "points": 240,
+    "level": 3,
+    "level_name": "英语小树",
+    "badges": [
+      {"id": "badge_001", "name": "坚持小能手", "earned_at": "2026-04-10"}
+    ],
+    "streak_days": 12,
+    "longest_streak": 15,
+    "total_practice_days": 20,
+    "total_questions": 100
+  }
+}
+```
+
+### PUT /user/profile
+
+更新用户资料
+
+**参数**:
+- `userId`: 用户 ID
+
+**请求体** (所有字段可选):
+```json
+{
+  "name": "张三",
+  "nickname": "小明",
+  "grade": 4,
+  "avatar_url": "https://...",
+  "parent_phone": "13800138000",
+  "parent_wechat": "wx123456"
+}
+```
+
+**响应**:
+```json
+{
+  "success": true,
+  "message": "资料更新成功"
+}
+```
+
+### PUT /user/change-password
+
+修改密码
+
+**参数**:
+- `userId`: 用户 ID
+
+**请求体**:
+```json
+{
+  "oldPassword": "old123",
+  "newPassword": "new123"
+}
+```
+
+**响应**:
+```json
+{
+  "success": true,
+  "message": "密码修改成功"
+}
+```
+
+### GET /user/list
+
+获取用户列表（老师/管理员用）
+
+**参数**:
+- `grade`: 年级（可选）
+- `page`: 页码（默认 1）
+- `limit`: 每页数量（默认 20）
+
+**响应**:
+```json
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "张三",
+      "nickname": "小明",
+      "grade": 3,
+      "avatar_url": "https://...",
+      "username": "student001",
+      "is_active": true,
+      "last_login_at": "2026-04-17T08:00:00Z",
+      "points": 240,
+      "level": 3,
+      "level_name": "英语小树"
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 20,
+    "total": 50,
+    "totalPages": 3
+  }
+}
+```
+
 ---
 
 ## 📚 练习接口
