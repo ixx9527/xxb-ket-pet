@@ -1,0 +1,702 @@
+[
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：NO SMOKING]",
+    "options": [
+      {
+        "key": "A",
+        "text": "You can smoke here."
+      },
+      {
+        "key": "B",
+        "text": "You cannot smoke here."
+      },
+      {
+        "key": "C",
+        "text": "Smoking area"
+      }
+    ],
+    "answer": "B",
+    "explanation": "NO SMOKING 意思是\"禁止吸烟\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：NO PARKING]",
+    "options": [
+      {
+        "key": "A",
+        "text": "You can park here."
+      },
+      {
+        "key": "B",
+        "text": "You cannot park here."
+      },
+      {
+        "key": "C",
+        "text": "Free parking"
+      }
+    ],
+    "answer": "B",
+    "explanation": "NO PARKING 意思是\"禁止停车\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：NO ENTRY]",
+    "options": [
+      {
+        "key": "A",
+        "text": "You can enter here."
+      },
+      {
+        "key": "B",
+        "text": "You cannot enter here."
+      },
+      {
+        "key": "C",
+        "text": "Enter with permission"
+      }
+    ],
+    "answer": "B",
+    "explanation": "NO ENTRY 意思是\"禁止入内\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：CLOSED]",
+    "options": [
+      {
+        "key": "A",
+        "text": "The shop is open."
+      },
+      {
+        "key": "B",
+        "text": "The shop is not open."
+      },
+      {
+        "key": "C",
+        "text": "The shop is new"
+      }
+    ],
+    "answer": "B",
+    "explanation": "CLOSED 意思是\"已关门/不营业\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：OPEN]",
+    "options": [
+      {
+        "key": "A",
+        "text": "The shop is closed."
+      },
+      {
+        "key": "B",
+        "text": "The shop is open now."
+      },
+      {
+        "key": "C",
+        "text": "The shop is old"
+      }
+    ],
+    "answer": "B",
+    "explanation": "OPEN 意思是\"营业中\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：DANGER]",
+    "options": [
+      {
+        "key": "A",
+        "text": "Be careful."
+      },
+      {
+        "key": "B",
+        "text": "It is safe."
+      },
+      {
+        "key": "C",
+        "text": "Go forward"
+      }
+    ],
+    "answer": "A",
+    "explanation": "DANGER 意思是\"危险\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：PUSH]",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pull the door."
+      },
+      {
+        "key": "B",
+        "text": "Push the door."
+      },
+      {
+        "key": "C",
+        "text": "Knock the door"
+      }
+    ],
+    "answer": "B",
+    "explanation": "PUSH 意思是\"推\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：PULL]",
+    "options": [
+      {
+        "key": "A",
+        "text": "Push the door."
+      },
+      {
+        "key": "B",
+        "text": "Pull the door."
+      },
+      {
+        "key": "C",
+        "text": "Open the window"
+      }
+    ],
+    "answer": "B",
+    "explanation": "PULL 意思是\"拉\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：ONE WAY]",
+    "options": [
+      {
+        "key": "A",
+        "text": "You can go in two directions."
+      },
+      {
+        "key": "B",
+        "text": "You can only go in one direction."
+      },
+      {
+        "key": "C",
+        "text": "No entry"
+      }
+    ],
+    "answer": "B",
+    "explanation": "ONE WAY 意思是\"单行道\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：NO PHOTOS]",
+    "options": [
+      {
+        "key": "A",
+        "text": "You can take photos here."
+      },
+      {
+        "key": "B",
+        "text": "You cannot take photos here."
+      },
+      {
+        "key": "C",
+        "text": "Photo shop"
+      }
+    ],
+    "answer": "B",
+    "explanation": "NO PHOTOS 意思是\"禁止拍照\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "标志识别",
+      "词汇"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: My brother ___ very tall.",
+    "options": [
+      {
+        "key": "A",
+        "text": "have"
+      },
+      {
+        "key": "B",
+        "text": "has"
+      },
+      {
+        "key": "C",
+        "text": "is"
+      }
+    ],
+    "answer": "C",
+    "explanation": "描述身高用 be 动词，My brother is tall。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "be 动词"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: They ___ to the cinema last night.",
+    "options": [
+      {
+        "key": "A",
+        "text": "go"
+      },
+      {
+        "key": "B",
+        "text": "went"
+      },
+      {
+        "key": "C",
+        "text": "gone"
+      }
+    ],
+    "answer": "B",
+    "explanation": "last night 表示过去，用过去式 went。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "过去式"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: I have ___ finished my homework.",
+    "options": [
+      {
+        "key": "A",
+        "text": "just"
+      },
+      {
+        "key": "B",
+        "text": "yet"
+      },
+      {
+        "key": "C",
+        "text": "since"
+      }
+    ],
+    "answer": "A",
+    "explanation": "现在完成时：have just finished 表示'刚刚完成'。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "完成时"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: This is ___ interesting book.",
+    "options": [
+      {
+        "key": "A",
+        "text": "a"
+      },
+      {
+        "key": "B",
+        "text": "an"
+      },
+      {
+        "key": "C",
+        "text": "the"
+      }
+    ],
+    "answer": "B",
+    "explanation": "interesting 以元音开头，用 an。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "冠词"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: She can ___ very well.",
+    "options": [
+      {
+        "key": "A",
+        "text": "swim"
+      },
+      {
+        "key": "B",
+        "text": "swims"
+      },
+      {
+        "key": "C",
+        "text": "swimming"
+      }
+    ],
+    "answer": "A",
+    "explanation": "can 是情态动词，后面用动词原形。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "情态动词"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: There ___ three apples on the table.",
+    "options": [
+      {
+        "key": "A",
+        "text": "is"
+      },
+      {
+        "key": "B",
+        "text": "are"
+      },
+      {
+        "key": "C",
+        "text": "be"
+      }
+    ],
+    "answer": "B",
+    "explanation": "three apples 是复数，用 are。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "there be"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: This is ___ (I) book.",
+    "options": [
+      {
+        "key": "A",
+        "text": "my"
+      },
+      {
+        "key": "B",
+        "text": "mine"
+      },
+      {
+        "key": "C",
+        "text": "me"
+      }
+    ],
+    "answer": "A",
+    "explanation": "形容词性物主代词 my 修饰名词 book。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "代词"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: He ___ (not like) vegetables.",
+    "options": [
+      {
+        "key": "A",
+        "text": "don't like"
+      },
+      {
+        "key": "B",
+        "text": "doesn't like"
+      },
+      {
+        "key": "C",
+        "text": "not like"
+      }
+    ],
+    "answer": "B",
+    "explanation": "第三人称单数否定用 doesn't like。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "语法",
+      "否定句"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 3",
+    "question_type": "single_choice",
+    "content": "Read the text:\n\nHi Jane,\nCan you come to my party on Saturday? It starts at 3 PM at my house. Bring your swimsuit - we can use the pool!\n\nLove,\nEmma\n\nWhat time does the party start?",
+    "options": [
+      {
+        "key": "A",
+        "text": "2 PM"
+      },
+      {
+        "key": "B",
+        "text": "3 PM"
+      },
+      {
+        "key": "C",
+        "text": "4 PM"
+      }
+    ],
+    "answer": "B",
+    "explanation": "邮件中说\"It starts at 3 PM\"。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "阅读理解",
+      "信息提取"
+    ]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 3",
+    "question_type": "single_choice",
+    "content": "Read the text:\n\nSWIMMING POOL\nMonday-Friday: 7 AM - 9 PM\nSaturday-Sunday: 8 AM - 10 PM\n\nWhen does the pool close on Sunday?",
+    "options": [
+      {
+        "key": "A",
+        "text": "9 PM"
+      },
+      {
+        "key": "B",
+        "text": "10 PM"
+      },
+      {
+        "key": "C",
+        "text": "8 PM"
+      }
+    ],
+    "answer": "B",
+    "explanation": "周末（Saturday-Sunday）开放到 10 PM。",
+    "difficulty": 1,
+    "source": "剑桥 KET 真题",
+    "tags": [
+      "阅读理解",
+      "信息提取"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: If I ___ enough money, I would buy a new car.",
+    "options": [
+      {
+        "key": "A",
+        "text": "have"
+      },
+      {
+        "key": "B",
+        "text": "had"
+      },
+      {
+        "key": "C",
+        "text": "have had"
+      }
+    ],
+    "answer": "B",
+    "explanation": "虚拟语气：If I had...I would...（与现在事实相反）",
+    "difficulty": 3,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "语法",
+      "虚拟语气"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: By the time we arrived, the movie ___.",
+    "options": [
+      {
+        "key": "A",
+        "text": "started"
+      },
+      {
+        "key": "B",
+        "text": "had started"
+      },
+      {
+        "key": "C",
+        "text": "has started"
+      }
+    ],
+    "answer": "B",
+    "explanation": "过去完成时：had started 表示'已经开始了'。",
+    "difficulty": 3,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "语法",
+      "时态"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: I wish I ___ speak French.",
+    "options": [
+      {
+        "key": "A",
+        "text": "can"
+      },
+      {
+        "key": "B",
+        "text": "could"
+      },
+      {
+        "key": "C",
+        "text": "will"
+      }
+    ],
+    "answer": "B",
+    "explanation": "I wish 后用 could 表示'希望能够'。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "语法",
+      "虚拟语气"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Choose the best word: It's important to ___ a healthy lifestyle.",
+    "options": [
+      {
+        "key": "A",
+        "text": "make"
+      },
+      {
+        "key": "B",
+        "text": "do"
+      },
+      {
+        "key": "C",
+        "text": "lead"
+      }
+    ],
+    "answer": "C",
+    "explanation": "lead a lifestyle 是固定搭配。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "词汇",
+      "搭配"
+    ]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Complete with the correct form: She has been working here ___ 2015.",
+    "options": [
+      {
+        "key": "A",
+        "text": "since"
+      },
+      {
+        "key": "B",
+        "text": "for"
+      },
+      {
+        "key": "C",
+        "text": "from"
+      }
+    ],
+    "answer": "A",
+    "explanation": "现在完成进行时 + since + 时间点。",
+    "difficulty": 2,
+    "source": "剑桥 PET 真题",
+    "tags": [
+      "语法",
+      "介词"
+    ]
+  }
+]
