@@ -5,6 +5,7 @@ import { initDatabase } from './database.js'
 import authRoutes from './routes/auth.js'
 import middlewareRoutes from './routes/middleware.js'
 import userRoutes from './routes/user.js'
+import questionRoutes from './routes/questions.js'
 import practiceRoutes from './routes/practice.js'
 import mistakeRoutes from './routes/mistakes.js'
 import growthRoutes from './routes/growth.js'
@@ -35,6 +36,7 @@ app.get('/health', (req: Request, res: Response) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/middleware', middlewareRoutes)
 app.use('/api/user', userRoutes)
+app.use('/api/questions', questionRoutes)
 app.use('/api/practice', practiceRoutes)
 app.use('/api/mistakes', mistakeRoutes)
 app.use('/api/growth', growthRoutes)

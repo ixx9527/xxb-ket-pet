@@ -1,0 +1,94 @@
+{
+  "name": "星星榜 KET/PET 题库导入工具",
+  "version": "1.0.0",
+  "description": "支持批量导入 KET/PET 真题",
+  "author": "星星榜",
+  "license": "MIT",
+  "keywords": [
+    "KET",
+    "PET",
+    "英语",
+    "题库",
+    "导入"
+  ],
+  "categories": [
+    "KET",
+    "PET"
+  ],
+  "questionTypes": [
+    "single_choice",
+    "multiple_choice",
+    "fill_blank",
+    "matching",
+    "word_formation"
+  ],
+  "parts": {
+    "KET": [
+      "Reading Part 1",
+      "Reading Part 2",
+      "Reading Part 3",
+      "Reading Part 4",
+      "Reading Part 5",
+      "Listening Part 1",
+      "Listening Part 2",
+      "Writing Part 1",
+      "Speaking Part 1"
+    ],
+    "PET": [
+      "Reading Part 1",
+      "Reading Part 2",
+      "Reading Part 3",
+      "Reading Part 4",
+      "Reading Part 5",
+      "Use of English Part 1",
+      "Use of English Part 2",
+      "Use of English Part 3",
+      "Use of English Part 4",
+      "Listening Part 1",
+      "Listening Part 2",
+      "Writing Part 1",
+      "Writing Part 2"
+    ]
+  },
+  "difficultyLevels": {
+    "1": "简单",
+    "2": "中等",
+    "3": "较难",
+    "4": "困难",
+    "5": "专家"
+  },
+  "tags": [
+    "词汇",
+    "语法",
+    "阅读",
+    "听力",
+    "写作",
+    "口语",
+    "标志识别",
+    "信息提取",
+    "推理判断",
+    "主旨大意",
+    "观点态度",
+    "短语动词",
+    "词性转换",
+    "间接引语",
+    "虚拟语气",
+    "完成时",
+    "过去式",
+    "冠词",
+    "代词",
+    "介词",
+    "量词",
+    "情态动词",
+    "be 动词",
+    "否定句",
+    "there be",
+    "问候",
+    "礼貌用语",
+    "时间",
+    "数字",
+    "匹配",
+    "邮件",
+    "便条"
+  ]
+}

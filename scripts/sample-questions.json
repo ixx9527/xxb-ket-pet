@@ -1,0 +1,66 @@
+[
+  {
+    "category": "KET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this sign say? [图片：NO ENTRY]",
+    "options": [
+      {"key": "A", "text": "You can enter here."},
+      {"key": "B", "text": "You cannot enter here."},
+      {"key": "C", "text": "Enter with permission."}
+    ],
+    "answer": "B",
+    "explanation": "NO ENTRY 意思是\"禁止入内\"。",
+    "difficulty": 1,
+    "source": "示例题目",
+    "tags": ["标志识别", "词汇"]
+  },
+  {
+    "category": "KET",
+    "part": "Reading Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: My sister ___ very good at tennis.",
+    "options": [
+      {"key": "A", "text": "have"},
+      {"key": "B", "text": "has"},
+      {"key": "C", "text": "is"}
+    ],
+    "answer": "C",
+    "explanation": "描述能力用 be 动词，My sister is good at tennis。",
+    "difficulty": 1,
+    "source": "示例题目",
+    "tags": ["语法", "be 动词"]
+  },
+  {
+    "category": "PET",
+    "part": "Reading Part 1",
+    "question_type": "single_choice",
+    "content": "What does this notice mean? [图片：KEEP OUT]",
+    "options": [
+      {"key": "A", "text": "Everyone can enter."},
+      {"key": "B", "text": "Do not enter."},
+      {"key": "C", "text": "Enter quietly."}
+    ],
+    "answer": "B",
+    "explanation": "KEEP OUT 意思是\"禁止入内/勿进\"。",
+    "difficulty": 2,
+    "source": "示例题目",
+    "tags": ["标志识别", "词汇"]
+  },
+  {
+    "category": "PET",
+    "part": "Use of English Part 2",
+    "question_type": "single_choice",
+    "content": "Complete the sentence: I ___ to the gym three times a week.",
+    "options": [
+      {"key": "A", "text": "go"},
+      {"key": "B", "text": "going"},
+      {"key": "C", "text": "gone"}
+    ],
+    "answer": "A",
+    "explanation": "一般现在时，主语 I 后面用动词原形 go。",
+    "difficulty": 2,
+    "source": "示例题目",
+    "tags": ["语法", "时态"]
+  }
+]
