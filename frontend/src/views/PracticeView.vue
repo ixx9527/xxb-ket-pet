@@ -125,28 +125,40 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
+import { usePracticeStore } from '../stores/practice'
+import apiClient from '../utils/api'
 
 const router = useRouter()
+const authStore = useAuthStore()
+const practiceStore = usePracticeStore()
 
 const currentQuestion = ref(0)
-const totalQuestions = ref(5)
 const timeRemaining = ref(900)
 const selectedAnswer = ref(null)
 const showExplanation = ref(false)
 const isCorrect = ref(false)
 const showResult = ref(false)
 const score = ref(0)
+const answers = ref([])
+let timer = null
 
-const options = ref([
-  { key: 'A', text: 'You can park here.' },
-  { key: 'B', text: 'You cannot park here.' },
-  { key: 'C', text: 'Free parking.' }
-])
-
-const correctAnswer = ref('B')
-const explanation = ref('NO PARKING 意思是"禁止停车"，所以正确答案是 B。')
+const questions = computed(() => practiceStore.todayQuestions)
+const totalQuestions = computed(() => questions.value.length || 5)
+const currentQ = computed(() => questions.value[currentQuestion.value] || {})
+const options = computed(() => {
+  const q = currentQ.value
+  if (!q.options) return []
+  try {
+    return typeof q.options === 'string' ? JSON.parse(q.options) : q.options
+  } catch {
+    return []
+  }
+})
+const correctAnswer = computed(() => currentQ.value?.answer)
+const explanation = computed(() => currentQ.value?.explanation || '')
 
 const isLastQuestion = computed(() => currentQuestion.value >= totalQuestions.value - 1)
 
@@ -184,6 +196,11 @@ const submitAnswer = () => {
   if (isCorrect.value) {
     score.value++
   }
+  answers.value.push({
+    questionId: currentQ.value.id,
+    selectedAnswer: selectedAnswer.value,
+    timeSpent: 0
+  })
   showExplanation.value = true
 }
 
@@ -193,15 +210,26 @@ const nextQuestion = () => {
   showExplanation.value = false
   
   if (currentQuestion.value >= totalQuestions.value) {
+    finishPractice()
+  }
+}
+
+const finishPractice = async () => {
+  try {
+    await apiClient.post('/practice/submit', {
+      userId: authStore.userId,
+      category: 'KET',
+      answers: answers.value
+    })
+    showResult.value = true
+  } catch (err) {
+    console.error('Submit error:', err)
     showResult.value = true
   }
 }
 
-const finishPractice = () => {
-  showResult.value = true
-}
-
 const goHome = () => {
+  practiceStore.reset()
   router.push('/')
 }
 
@@ -212,6 +240,55 @@ const formatTime = (seconds) => {
 }
 
 const pointsEarned = computed(() => score.value * 10 + (score.value === totalQuestions.value ? 20 : 0))
+
+const loadQuestions = async () => {
+  practiceStore.setLoading(true)
+  try {
+    const data = await apiClient.get('/practice/daily', {
+      params: { category: 'KET', userId: authStore.userId }
+    })
+    
+    if (data.completed) {
+      practiceStore.setCompleted(true, data.practice)
+      showResult.value = true
+      return
+    }
+    
+    practiceStore.setQuestions(data.questions || [])
+    timeRemaining.value = data.timeLimit || 900
+  } catch (err) {
+    console.error('Load questions error:', err)
+    practiceStore.setError('加载题目失败')
+  } finally {
+    practiceStore.setLoading(false)
+  }
+}
+
+const startTimer = () => {
+  timer = setInterval(() => {
+    if (timeRemaining.value > 0 && !showResult.value) {
+      timeRemaining.value--
+    } else if (timeRemaining.value <= 0 && !showResult.value) {
+      finishPractice()
+    }
+  }, 1000)
+}
+
+onMounted(() => {
+  if (!authStore.isAuthenticated) {
+    router.push('/login')
+    return
+  }
+  
+  if (questions.value.length === 0) {
+    loadQuestions()
+  }
+  startTimer()
+})
+
+onUnmounted(() => {
+  if (timer) clearInterval(timer)
+})
 </script>
 
 <style scoped>

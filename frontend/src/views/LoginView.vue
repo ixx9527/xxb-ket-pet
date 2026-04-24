@@ -8,6 +8,10 @@
       </div>
 
       <form @submit.prevent="handleLogin" class="space-y-6">
+        <div v-if="error" class="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-xl text-sm">
+          {{ error }}
+        </div>
+
         <div>
           <label class="block text-gray-700 font-bold mb-2">用户名</label>
           <input 
@@ -16,6 +20,7 @@
             class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
             placeholder="请输入用户名"
             required
+            :disabled="loading"
           />
         </div>
 
@@ -27,11 +32,13 @@
             class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
             placeholder="请输入密码"
             required
+            :disabled="loading"
           />
         </div>
 
-        <button type="submit" class="btn-primary w-full">
-          登录
+        <button type="submit" class="btn-primary w-full" :disabled="loading">
+          <span v-if="loading">登录中...</span>
+          <span v-else>登录</span>
         </button>
       </form>
 
@@ -48,14 +55,38 @@
 <script setup>
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
+import apiClient from '../utils/api'
 
 const router = useRouter()
+const authStore = useAuthStore()
 const username = ref('')
 const password = ref('')
+const error = ref('')
+const loading = ref(false)
 
 const handleLogin = async () => {
-  // TODO: 调用登录 API
-  console.log('登录:', username.value, password.value)
-  router.push('/')
+  if (!username.value || !password.value) {
+    error.value = '请输入用户名和密码'
+    return
+  }
+
+  loading.value = true
+  error.value = ''
+
+  try {
+    const response = await apiClient.post('/auth/login', {
+      username: username.value,
+      password: password.value
+    })
+
+    authStore.setAuth(response.token, response.user)
+    router.push('/')
+  } catch (err) {
+    error.value = err.response?.data?.error || '登录失败，请检查用户名和密码'
+    console.error('Login error:', err)
+  } finally {
+    loading.value = false
+  }
 }
 </script>
