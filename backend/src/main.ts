@@ -10,6 +10,7 @@ import practiceRoutes from './routes/practice.js'
 import mistakeRoutes from './routes/mistakes.js'
 import growthRoutes from './routes/growth.js'
 import reportRoutes from './routes/report.js'
+import { authMiddleware } from './routes/middleware.js'
 
 dotenv.config()
 
@@ -35,12 +36,12 @@ app.get('/health', (req: Request, res: Response) => {
 // API 路由
 app.use('/api/auth', authRoutes)
 app.use('/api/middleware', middlewareRoutes)
-app.use('/api/user', userRoutes)
-app.use('/api/questions', questionRoutes)
-app.use('/api/practice', practiceRoutes)
-app.use('/api/mistakes', mistakeRoutes)
-app.use('/api/growth', growthRoutes)
-app.use('/api/report', reportRoutes)
+app.use('/api/user', authMiddleware, userRoutes)
+app.use('/api/questions', authMiddleware, questionRoutes)
+app.use('/api/practice', authMiddleware, practiceRoutes)
+app.use('/api/mistakes', authMiddleware, mistakeRoutes)
+app.use('/api/growth', authMiddleware, growthRoutes)
+app.use('/api/report', authMiddleware, reportRoutes)
 
 // 404 处理
 app.use((req: Request, res: Response) => {

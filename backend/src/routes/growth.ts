@@ -4,6 +4,36 @@ import { query } from '../database.js'
 const router = Router()
 
 // 获取用户成长信息
+router.get('/', async (req: Request, res: Response) => {
+  try {
+    const userId = req.query.userId
+    
+    const result = await query(
+      `SELECT points, level, badges, total_practice_days, total_questions
+       FROM growth
+       WHERE user_id = $1`,
+      [userId]
+    )
+    
+    if (result.rows.length === 0) {
+      return res.status(404).json({ error: '用户不存在' })
+    }
+    
+    const data = result.rows[0]
+    res.json({
+      points: data.points || 0,
+      level: data.level || 1,
+      badges: data.badges || [],
+      total_practice_days: data.total_practice_days || 0,
+      total_questions: data.total_questions || 0
+    })
+  } catch (error: any) {
+    console.error('Get growth info error:', error.message)
+    res.status(500).json({ error: '获取成长信息失败' })
+  }
+})
+
+// 获取用户成长信息（旧接口兼容）
 router.get('/profile', async (req: Request, res: Response) => {
   try {
     const userId = req.query.userId

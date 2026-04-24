@@ -1,36 +1,21 @@
-# 环境变量
-.env
-
-# 持久化数据
-data/
-
-# 依赖
+```
+# Dependencies
 node_modules/
-*/node_modules/
 
-# 构建输出
-dist/
-*/dist/
-build/
-
-# 日志
-logs/
+# Logs and temp files
 *.log
-npm-debug.log*
+*.tmp
 
-# 系统文件
-.DS_Store
-Thumbs.db
-*.swp
-*.swo
+# Environment
+.env
+.env.local
+.env.*
 
-# IDE
+# Editors
 .vscode/
 .idea/
-*.sublime-project
-*.sublime-workspace
 
-# 临时文件
-tmp/
-temp/
-*.tmp
+# Build outputs
+dist/
+build/
+```
