@@ -75,7 +75,7 @@
             <label class="block text-gray-700 font-bold mb-2">年级</label>
             <select 
               v-model="grade"
-              class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
+              class="w-full px-4 py-3 pr-8 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:outline-none text-lg"
               required
               :disabled="loading"
             >
